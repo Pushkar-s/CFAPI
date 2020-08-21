@@ -1,0 +1,18 @@
+<%- include('partials/header.ejs') %>
+
+<div class="ui text container segment">
+    <form class="ui form" action="/index" method="GET">
+             <h2 class="ui center aligned icon header">
+                <i class="circular users icon"></i>
+                Search For User Details
+            </h2>
+            <div class="field">
+                <label>Enter Handle of User Name:</label>
+                <input type="text" name="username" placeholder="Title">
+                <!-- name = "blog[title]"  if you want to use that syntax in app.js create route-->
+            </div>
+            <button class="ui violet big basic button">Submit</button>
+    </form>
+</div>
+
+<%- include('partials/footer.ejs') %>

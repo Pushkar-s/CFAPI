@@ -1,0 +1,127 @@
+<%- include('partials/header.ejs') %>
+
+
+<div class="ui text container segment">
+    <h1>Welcome to your profile, <%= user.username %></h1>
+
+    <%if(user.Codeforces.length===1){%>
+        <h3>CF Handle: <%=user.Codeforces[0].handle%></h3>
+    <%}%>
+    <form class="ui form" action="/edit/" method="GET">
+        <button class="ui secondary basic button">Edit your CF Handle</button>
+    </form>
+    <form class="ui form" action="/edit/" method="GET">
+        <button class="ui secondary basic button">Refresh</button>
+    </form>
+    <!-- <a href="/edit/">Edit your CF Handle</a> -->
+
+</div>
+
+<%if(user.Codeforces.length===1){%>
+    <!-- if user exists -->
+
+    <div class="ui container segment">
+            <% var imp = 0;%> 
+            <%var dp=0;%> 
+            <%var math=0;%> 
+            <%var graphs=0;%>
+            <%var greedy=0;%>
+            <% user.Codeforces[0].problems.forEach(function(dbproblem){%>
+
+
+                <%dbproblem.tags.forEach(function(tag){%>
+                    <% if( tag==="implementation"){imp++;}%>
+                    <% if( tag==="dp"){dp++}%>
+                    <% if( tag==="math"){math++}%>
+                    <% if( tag==="greedy"){greedy++}%>
+                    <% if( tag==="graphs"){graphs++}%>
+                <%})%>
+
+
+            <%})%>
+    </div>
+
+
+
+    <div class="ui container ">
+        <div class="ui stackable centered grid">
+            <% var arr = ["greedy","dp","math","graphs","implementation"]%>
+            <% arr.forEach(function(t){%>
+                <div class="eight wide column">
+                        <div class="ui piled segment">
+                            <div class="ui header"><%=t%></div>
+                            <div class="description">
+                                <%if(t=="greedy"){%>
+                                    <div class="ui labeled button" tabindex="0">
+                                        <div class="ui basic blue button">
+                                            <i class="fork icon"></i> Solved
+                                        </div>
+                                        <a class="ui basic left pointing blue label">
+                                            <%=greedy%>
+                                        </a>
+                                    </div>
+                                <%}%>
+                                <%if(t=="dp"){%>
+                                    <div class="ui labeled button" tabindex="0">
+                                        <div class="ui basic blue button">
+                                            <i class="fork icon"></i> Solved
+                                        </div>
+                                        <a class="ui basic left pointing blue label">
+                                            <%=dp%>
+                                        </a>
+                                    </div>
+                                <%}%>
+                                <%if(t=="math"){%>
+                                    <div class="ui labeled button" tabindex="0">
+                                        <div class="ui basic blue button">
+                                            <i class="fork icon"></i> Solved
+                                        </div>
+                                        <a class="ui basic left pointing blue label">
+                                            <%=math%>
+                                        </a>
+                                    </div>
+                                <%}%>
+                                <%if(t=="graphs"){%>
+                                    <div class="ui labeled button" tabindex="0">
+                                        <div class="ui basic blue button">
+                                            <i class="fork icon"></i> Solved
+                                        </div>
+                                        <a class="ui basic left pointing blue label">
+                                            <%=graphs%>
+                                        </a>
+                                    </div>
+                                <%}%>
+                                <%if(t=="implementation"){%>
+                                    <div class="ui labeled button" tabindex="0">
+                                        <div class="ui basic blue button">
+                                            <i class="fork icon"></i> Solved
+                                        </div>
+                                        <a class="ui basic left pointing blue label">
+                                            <%=imp%>
+                                        </a>
+                                    </div>
+                                <%}%>
+                            </div>
+                            <!-- <div class="ui bottom button">
+                                <i class="add icon"></i>
+                                Solve More Problems
+                            </div> -->
+                            <div class="ui bottom button" >
+                                <a href="/">See solved Problems</a>
+                                <!-- See solved Problems -->
+                            </div>
+                        </div>
+                </div>
+            <%})%>
+        </div>
+    </div>
+
+
+<%}%>
+
+
+
+
+
+
+<%- include('partials/footer.ejs') %>
