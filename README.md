@@ -5,6 +5,5 @@ Website built using Node.js for backend and html, jquery and css for frontend.
 various Javascript frameworks like express, request, OAuth, Ajax, passport , ejs, mongodb, mongoose , mocha.
 Requires Data structures and Algorithmic steps to analyse submissions by a contestant.
 
-![alt text](https://github.com/Pushkar-s/CFAPI/blob/master/page1.png?raw=true)
-![alt text](https://github.com/Pushkar-s/CFAPI/blob/master/page2.jpg?raw=true)
-![Screenshot](page1.png)
+![Profile Page](https://github.com/Pushkar-s/CFAPI/blob/master/page1.png?raw=true)
+![solved problems page](https://github.com/Pushkar-s/CFAPI/blob/master/page2.png?raw=true)
