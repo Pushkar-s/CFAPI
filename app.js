@@ -11,7 +11,6 @@ const cookieSession = require("cookie-session");
 const passport = require("passport");
 
 
-
 var bodyParser = require("body-parser");
 
 app.use(bodyParser.urlencoded({extended:true}));

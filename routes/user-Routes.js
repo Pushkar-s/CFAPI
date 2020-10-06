@@ -9,7 +9,6 @@ router.get("/:user/:tag",function(req,res){
     var search_term = req.params.user;
     // var url = 'http://codeforces.com/api/user.status?handle='+ search_term + '&from=1&count=10' ;
     var url = 'http://codeforces.com/api/user.status?handle='+ search_term ;// to search from all que
-
     request(url, function (error, response, body) {
         // eval(require('locus'));
       console.error('error:', error);

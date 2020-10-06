@@ -10,7 +10,7 @@
     <form class="ui form" action="/edit/" method="GET">
         <button class="ui secondary basic button">Edit your CF Handle</button>
     </form>
-    <form class="ui form" action="/edit/" method="GET">
+    <form class="ui form" action="/edit/refresh" method="GET">
         <button class="ui secondary basic button">Refresh</button>
     </form>
     <!-- <a href="/edit/">Edit your CF Handle</a> -->
@@ -101,15 +101,16 @@
                                         </a>
                                     </div>
                                 <%}%>
+                                <div class="ui bottom button" >
+                                    <a href="/profile/solved/<%=t%>">See solved Problems</a>
+                                    <!-- See solved Problems -->
+                                </div>
                             </div>
                             <!-- <div class="ui bottom button">
                                 <i class="add icon"></i>
                                 Solve More Problems
                             </div> -->
-                            <div class="ui bottom button" >
-                                <a href="/">See solved Problems</a>
-                                <!-- See solved Problems -->
-                            </div>
+                            
                         </div>
                 </div>
             <%})%>
