@@ -15,15 +15,24 @@ body {
     padding: 0;
 }
 
+
 main {
     margin-left: 5rem;
     padding: 1rem;
+    transition: all 200ms ease;
+}
+
+.main-class {
+    margin-left: 16rem;
+    margin-bottom: 5rem;
+    padding: 1rem;
+    transition: all 200ms ease ;
 }
 
 .navbar {
     position: fixed;
     background-color: var(--bg-primary);
-    transition: width 200ms ease;
+    transition: all 200ms ease; /*you can use width instead of all */
 }
 
 .navbar-nav {
@@ -119,7 +128,7 @@ main {
     .navbar {
         bottom: 0;
         width: 100vw;
-        height: 4rem;
+        height: 5rem;
     }
     .logo {
         display: none;
@@ -130,8 +139,9 @@ main {
     .nav-link {
         justify-content: center;
     }
-    main {
+    main{
         margin: 0;
+        margin-bottom: 5rem;
     }
 
 }
@@ -147,7 +157,7 @@ main {
         width: 16rem;
         /*but its instant we need to animate the transition*/
     }
-    
+
     .navbar:hover .link-text {
         display: block;
     }
