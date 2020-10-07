@@ -21,101 +21,36 @@
     <!-- if user exists -->
 
     <div class="ui container segment">
-            <% var imp = 0;%> 
-            <%var dp=0;%> 
-            <%var math=0;%> 
-            <%var graphs=0;%>
-            <%var greedy=0;%>
+            <%var cnt = [0,0,0,0,0]%>
             <% user.Codeforces[0].problems.forEach(function(dbproblem){%>
-
-
                 <%dbproblem.tags.forEach(function(tag){%>
-                    <% if( tag==="implementation"){imp++;}%>
-                    <% if( tag==="dp"){dp++}%>
-                    <% if( tag==="math"){math++}%>
-                    <% if( tag==="greedy"){greedy++}%>
-                    <% if( tag==="graphs"){graphs++}%>
+                    <% if( tag==="implementation"){cnt[4]++;}%>
+                    <% if( tag==="dp"){cnt[1]++}%>
+                    <% if( tag==="math"){cnt[2]++}%>
+                    <% if( tag==="greedy"){cnt[0]++}%>
+                    <% if( tag==="graphs"){cnt[3]++}%>
                 <%})%>
-
-
             <%})%>
     </div>
 
-
-
-    <div class="ui container ">
-        <div class="ui stackable centered grid">
-            <% var arr = ["greedy","dp","math","graphs","implementation"]%>
-            <% arr.forEach(function(t){%>
-                <div class="eight wide column">
-                        <div class="ui piled segment">
-                            <div class="ui header"><%=t%></div>
-                            <div class="description">
-                                <%if(t=="greedy"){%>
-                                    <div class="ui labeled button" tabindex="0">
-                                        <div class="ui basic blue button">
-                                            <i class="fork icon"></i> Solved
-                                        </div>
-                                        <a class="ui basic left pointing blue label">
-                                            <%=greedy%>
-                                        </a>
-                                    </div>
-                                <%}%>
-                                <%if(t=="dp"){%>
-                                    <div class="ui labeled button" tabindex="0">
-                                        <div class="ui basic blue button">
-                                            <i class="fork icon"></i> Solved
-                                        </div>
-                                        <a class="ui basic left pointing blue label">
-                                            <%=dp%>
-                                        </a>
-                                    </div>
-                                <%}%>
-                                <%if(t=="math"){%>
-                                    <div class="ui labeled button" tabindex="0">
-                                        <div class="ui basic blue button">
-                                            <i class="fork icon"></i> Solved
-                                        </div>
-                                        <a class="ui basic left pointing blue label">
-                                            <%=math%>
-                                        </a>
-                                    </div>
-                                <%}%>
-                                <%if(t=="graphs"){%>
-                                    <div class="ui labeled button" tabindex="0">
-                                        <div class="ui basic blue button">
-                                            <i class="fork icon"></i> Solved
-                                        </div>
-                                        <a class="ui basic left pointing blue label">
-                                            <%=graphs%>
-                                        </a>
-                                    </div>
-                                <%}%>
-                                <%if(t=="implementation"){%>
-                                    <div class="ui labeled button" tabindex="0">
-                                        <div class="ui basic blue button">
-                                            <i class="fork icon"></i> Solved
-                                        </div>
-                                        <a class="ui basic left pointing blue label">
-                                            <%=imp%>
-                                        </a>
-                                    </div>
-                                <%}%>
-                                <div class="ui bottom button" >
-                                    <a href="/profile/solved/<%=t%>">See solved Problems</a>
-                                    <!-- See solved Problems -->
-                                </div>
-                            </div>
-                            <!-- <div class="ui bottom button">
-                                <i class="add icon"></i>
-                                Solve More Problems
-                            </div> -->
-                            
-                        </div>
+    <section class="grid">
+        <% var arr = ["greedy","dp","math","graphs","implementation"],i=0%>
+        <% arr.forEach(function(t){%>
+            <div class="card">
+                <div class="card-content">
+                    <a href="#">
+                        <h3><%=t%></h3>
+                    </a>
+                    <p>No of Problems solved : <%=cnt[i++]%> </p>
+                    <a href="/profile/solved/<%=t%>">
+                        <span class="tag<%=i%>">#see-solved-problems</span>
+                    </a>
                 </div>
-            <%})%>
-        </div>
-    </div>
+            </div>
+        <%})%>
+    </section>
+
+
 
 
 <%}%>

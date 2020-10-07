@@ -1,0 +1,85 @@
+:root {
+    /* font-size: 16px; */
+    /* --text-primary : #b6b6b6; */
+    /* --text-secondary : #ececec; */
+    /* --bg-primary : #23232e; */
+    --card-bg : #2a2e35;
+    --card-shadow : 0 4px 8px rgba(0,0,0,0.38);
+    --card-radius : 0.25em;
+    --text-color : #b2becd;
+    /* --bg-secondary : #141418; */
+    /* --transition-speed: 600ms; */
+}
+
+
+.card {
+    font-family: "sofia-pro",sans-serif;
+    background: var(--card-bg);
+    color: var(--text-color);
+    padding: 0;
+    box-shadow: var(--card-shadow);
+    display: inline-flex;
+    flex-direction: column;
+    margin: 0 0 1em;
+    width: 100%;
+    transform: translateY(0);
+    border-radius: var(--card-radius);
+}
+
+.card-content {
+    padding: 1rem;
+}
+.card-content h3{
+    color: white;
+}
+.card-content p {
+    color: gray;
+}
+
+.tag1 {
+    font-weight: bold;
+    background-color: #222;
+    border-radius: 2px;
+    color: #00d8ff;
+    padding: 0.1rem;
+}
+
+.tag2 {
+    font-weight: bold;
+    background-color: #ffcb2b;
+    border-radius: 2px;
+    color: #12181a;
+    padding: 0.1rem;
+}
+
+.tag3 {
+    font-weight: bold;
+    background-color: #454e56;
+    border-radius: 2px;
+    color: #b2b2cd;
+    padding: 0.1rem;
+}
+
+.tag4 {
+    font-weight: bold;
+    background-color: #f954be;
+    border-radius: 2px;
+    color: #313244;
+    padding: 0.1rem;
+}
+
+.tag5 {
+    font-weight: bold;
+    background-color: #498afb;
+    border-radius: 2px;
+    color: #fff;
+    padding: 0.1rem;
+}
+
+.tag6 {
+    font-weight: bold;
+    background-color: #90c53f;
+    border-radius: 2px;
+    color: #46483d;
+    padding: 0.1rem;
+}
