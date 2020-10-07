@@ -6,5 +6,12 @@ $(function () {
     });
 });
 
+// $(function(){
+//     $(document.navbar).hover(function(){
+//         var $main = $("#main");
+//         $main.
+//     });
+// });
+
 
 

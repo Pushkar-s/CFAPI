@@ -1,0 +1,107 @@
+:root {
+    font-size: 16px;
+    font-family: 'Open Sans';
+    --text-primary : #b6b6b6;
+    --text-secondary : #ececec;
+    --bg-primary : #23232e;
+    --bg-secondary : #141418;
+}
+
+body {
+    color: black;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    margin-left: 5rem;
+    padding: 1rem;
+}
+
+.navbar {
+    position: fixed;
+    background-color: var(--bg-primary);
+    transition: width 200ms ease;
+}
+
+.navbar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-item {
+    width: 100%;
+}
+
+.nav-item:last-child {
+    margin-top: auto;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    height: 5rem;
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.link-text {
+    display: none;
+    margin-left: 1rem;
+}
+
+.nav-link i{
+    min-width: 1rem;
+    margin: 0 1.5rem;
+}
+
+
+
+
+
+
+
+/* small screens */
+@media only screen and (max-width : 600px) {
+    .navbar {
+        bottom: 0;
+        width: 100vw;
+        height: 4rem;
+    }
+    .logo {
+        display: none;
+    }
+    .navbar-nav {
+        flex-direction: row;
+    }
+    .nav-link {
+        justify-content: center;
+    }
+    main {
+        margin: 0;
+    }
+
+}
+
+/* large screens*/
+@media only screen and (min-width : 600px)  {
+    .navbar {
+        top : 0;
+        width: 5rem; /*notice how it matches with the size of margin we left*/
+        height: 100vh; /*vh  is also unit of height but relative 100 vh takes up always 100% of the height*/
+    }
+    .navbar:hover {
+        width: 16rem;
+        /*but its instant we need to animate the transition*/
+    }
+
+    .navbar:hover .link-text {
+        display: block;
+    }
+}

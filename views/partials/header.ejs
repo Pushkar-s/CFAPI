@@ -3,62 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Blog App</title>
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
-    <!-- <link rel="stylesheet" type="text/css" href="/stylesheets/app.css"> -->
-    <link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
-    <script type="text/javascript" src="/scripts/master.js"></script>
-
-    
+    <link rel="stylesheet" href="/stylesheets/style.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="/stylesheets/font-awesome/css/font-awesome.min.css">
+    <title>CFAPI</title>
 </head>
 <body>
+    <nav class="navbar">
+        <ul class="navbar-nav">
 
-<!-- <div> -->
-    <!-- <div class="ui inverted segment">
-        <div class="ui inverted secondary menu">
-            <div class="ui text container">
-                <i class="code icon"></i>
-                <a href="/blogs" class="item active">Home </a>
-                <a href="/blogs/new" class="item">New Blog</a>
-                <a class="item">Login</a>
-            </div>
-        </div>
-    </div> -->
-
-    <div class="pusher">
-        <div class="full height">
-
-            <div id="mainnavbar" class="ui massive inverted secondary fixed menu">
-                <div class="ui text container">
-                    <a class="active item" href="/">
-                        Home
+            <li class="logo">
+                <a href="#" class="nav-link">
+                    <span class="link-text logo-text">CFAPI</span>
+                    <i class="fa fa-terminal fa-lg" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="/" class="nav-link">
+                    <i class="fa fa-home fa-lg" aria-hidden="true"></i>
+                    <span class="link-text">Home</span>
+                </a>
+            </li>
+            <% if (user) { %>
+                <%if (user.Codeforces.length == 1) {%>
+                    <li class="nav-item">
+                        <a href="/profile" class="nav-link">
+                            <i class="fa fa-user fa-lg" aria-hidden="true"></i>
+                            <span class="link-text"><%=user.Codeforces[0].handle%></span>
+                        </a>
+                    </li>
+                    <!-- <a class = "right item" href="/profile"><%=user.Codeforces[0].handle%></a> -->
+                <%}%>
+                <li class="nav-item">
+                    <a href="/auth/logout" class="nav-link">
+                        <i class="fa fa-power-off fa-lg" aria-hidden="true"></i>
+                        <span class="link-text">Log out</span>
                     </a>
-                    <% if (user) { %>
-                        <%if (user.Codeforces.length == 1) {%>
-                            <a class = "right item" href="/profile"><%=user.Codeforces[0].handle%></a>
-                        <%}%>
-                        <a class = "item" href="/auth/logout">Log out</a>
-                    <% } else { %>
-                        <a class = "right item" href="/auth/login">Login</a>
-                    <% } %>
+                </li>
+                <!-- <a class = "item" href="/auth/logout">Log out</a> -->
+            <% } else { %>
+                <li class="nav-item">
+                    <a href="/auth/login" class="nav-link">
+                        <i class="fa fa-sign-in fa-lg" aria-hidden="true"></i>
+                        <span class="link-text">Login</span>
+                    </a>
+                </li>
+                <!-- <a class = "right item" href="/auth/login">Login</a> -->
+            <% } %>
 
-                </div>
-            </div>
+        </ul>
+    </nav>
 
-            <div class="masthead segment">
-                    <!-- <img class="ui fluid image" src="/backg.jpg"> -->
-                    <!-- <h1>get set code</h1> -->
-                    <div className="ui fluid image">
-                        <img class = "ui fluid image" src="/backg.jpg"/>
-                    </div>
-            </div>
+    <main>
 
-        </div>
-        <div id="mainsegment" class="ui very padded segment">
-            <p></p>
-        </div>
-    </div>
-    
+
