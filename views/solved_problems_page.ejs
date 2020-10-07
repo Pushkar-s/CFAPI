@@ -26,6 +26,8 @@
                                     <div class="extra content">
                                         <% if( element.verdict == true){ %>
                                             <i class="green check icon">Accepted</i>
+                                            <%var str = element.problemID%>
+                                            <a href="https://codeforces.com/problemset/problem/<%=str.substring(0,str.length-1)%>/<%=str.substring(str.length-1)%>"> solve again</a>
                                         <% }else{%>
                                             <i class="red cancel icon">Wrong Answer</i>
                                         <%} %>
