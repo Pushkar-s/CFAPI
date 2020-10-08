@@ -22,6 +22,49 @@ main {
     transition: all 200ms ease;
 }
 
+
+
+
+/* ==========================================buttons============================== */
+.button1 {
+    background-color: white;
+    color: black;
+    border: 2px solid #161515;
+    padding: 1rem;
+    margin: 0.3rem;
+  }
+  
+.button1:hover {
+    background-color: #555555;
+    color: white;
+    border: 2px solid #555555;
+    transition: all 600ms ease;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.button1 i {
+    display: none;
+    transition: all 1000ms ease;
+}
+.button1:hover i{
+    display: inline;
+    transition: all 1000ms ease;
+}
+/* ================================================================================== */
+
+
+
+
+
+.text-content {
+    text-align: center;
+}
+.text-content h1 {
+    font-family: "sofia-pro",sans-serif;
+}
+.text-content h3 {
+    font-family: "attribute-mono",monospace;
+}
+
 .main-class {
     margin-left: 16rem;
     margin-bottom: 5rem;

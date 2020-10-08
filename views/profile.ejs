@@ -1,37 +1,35 @@
 <%- include('partials/header.ejs') %>
 
 
-<div class="ui text container segment">
-    <h1>Welcome to your profile, <%= user.username %></h1>
 
+
+<div class="text-content">
+    <h1>Welcome to your Profile, <%= user.username%></h1>
     <%if(user.Codeforces.length===1){%>
-        <h3>CF Handle: <%=user.Codeforces[0].handle%></h3>
+        <h3>CF Handle: <span class="tag5"><%=user.Codeforces[0].handle%></span></h3>
     <%}%>
-    <form class="ui form" action="/edit/" method="GET">
-        <button class="ui secondary basic button">Edit your CF Handle</button>
+    <form action="/edit/" method="GET">
+        <button class="button1"> <span>Edit your CF Handle</span> <i class="fa fa-pencil fa-lg" aria-hidden="true"></i> </button>
     </form>
-    <form class="ui form" action="/edit/refresh" method="GET">
-        <button class="ui secondary basic button">Refresh</button>
+    <form action="/edit/refresh" method="GET">
+        <button class="button1"> <span>Refresh</span> <i class="fa fa-refresh fa-lg" aria-hidden="true"></i></button>
     </form>
-    <!-- <a href="/edit/">Edit your CF Handle</a> -->
-
 </div>
+
 
 <%if(user.Codeforces.length===1){%>
     <!-- if user exists -->
 
-    <div class="ui container segment">
-            <%var cnt = [0,0,0,0,0]%>
-            <% user.Codeforces[0].problems.forEach(function(dbproblem){%>
-                <%dbproblem.tags.forEach(function(tag){%>
-                    <% if( tag==="implementation"){cnt[4]++;}%>
-                    <% if( tag==="dp"){cnt[1]++}%>
-                    <% if( tag==="math"){cnt[2]++}%>
-                    <% if( tag==="greedy"){cnt[0]++}%>
-                    <% if( tag==="graphs"){cnt[3]++}%>
-                <%})%>
-            <%})%>
-    </div>
+    <%var cnt = [0,0,0,0,0]%>
+    <% user.Codeforces[0].problems.forEach(function(dbproblem){%>
+        <%dbproblem.tags.forEach(function(tag){%>
+            <% if( tag==="implementation"){cnt[4]++;}%>
+            <% if( tag==="dp"){cnt[1]++}%>
+            <% if( tag==="math"){cnt[2]++}%>
+            <% if( tag==="greedy"){cnt[0]++}%>
+            <% if( tag==="graphs"){cnt[3]++}%>
+        <%})%>
+    <%})%>
 
     <section class="grid">
         <% var arr = ["greedy","dp","math","graphs","implementation"],i=0%>
@@ -42,16 +40,13 @@
                         <h3><%=t%></h3>
                     </a>
                     <p>No of Problems solved : <%=cnt[i++]%> </p>
-                    <a href="/profile/solved/<%=t%>">
-                        <span class="tag<%=i%>">#see-solved-problems</span>
+                    <a href="/profile/solved/<%=t%>" style="text-decoration: none;" >
+                        <span class="tag<%=i%>">see-solved-problems</span>
                     </a>
                 </div>
             </div>
         <%})%>
     </section>
-
-
-
 
 <%}%>
 
