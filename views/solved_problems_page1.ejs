@@ -1,0 +1,48 @@
+<%- include('partials/header.ejs') %>
+
+
+    <div class="ui container segment">
+        <div class="ui grid ">
+            <% problems.forEach(element => {%>
+                <% element.tags.forEach(function(quetag){%>
+                    <% if (quetag === tag) { %>
+                        <div class="four wide column">
+                            <div class="ui cards">
+                                    <div class="card">
+                                    <div class="content">
+                                        <div class="header">
+                                            <%= element.name%>
+                                        </div>
+                                        <div class="meta">
+                                            Ratings :  <i class="red icon"><%=element.rating%></i>
+                                        </div>
+                                        <div class="description segment">
+                                                <!-- Elliot requested permission to view your contact details -->
+                                                <%var str = element.problemID%>
+                                            <span><a href="https://codeforces.com/problemset/problem/<%=str.substring(0,str.length-1)%>/<%=str.substring(str.length-1)%>">See Problem</a></span>
+                                        </div>
+                                            <% element.tags.forEach(function(tg){%>
+                                                <div class="ui white horizontal label"><%=tg%></div>
+                                            <%})%>
+                                    </div>
+                                    <div class="extra content">
+                                        <% if( element.verdict == true){ %>
+                                            <i class="green check icon">Accepted</i>
+                                            <!-- <%var str = element.problemID%> -->
+                                            <!-- <span><a href="https://codeforces.com/problemset/problem/<%=str.substring(0,str.length-1)%>/<%=str.substring(str.length-1)%>"> solve again</a></span> -->
+                                        <% }else{%>
+                                            <i class="red cancel icon">Wrong Answer</i>
+                                        <%} %>
+                                    </div>
+                                    </div>
+                            </div>
+                        </div>
+                    <% } %>
+                <%})%>
+            <% });%>
+        </div>
+    </div>
+
+
+
+<%- include('partials/footer.ejs') %>

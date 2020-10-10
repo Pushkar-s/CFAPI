@@ -1,0 +1,48 @@
+/* body {
+    text-align: center;
+} */
+
+
+svg {
+    text-align: center;
+    width: 35rem;
+    height: 35rem;
+}
+
+@media only screen and (max-width : 600px) {
+    svg {
+        text-align: left;
+        width: 20rem;
+        height: 20rem;
+    }
+}
+
+.first-notif {
+    animation: notif1 3s ease infinite;
+}
+.second-notif {
+    animation: notif2 3s ease infinite;
+}
+.third-notif {
+    animation: notif3 3s ease infinite;
+}
+
+@keyframes notif1{
+    0%   { opacity: 0; }
+    33%  { opacity: 1; }
+    66%  { opacity: 1; }
+    100% { opacity: 1; }
+}
+
+@keyframes notif2{
+    0%   { opacity: 0; }
+    33%  { opacity: 0; }
+    66%  { opacity: 1; }
+    100% { opacity: 1; }
+}
+@keyframes notif3{
+    0%   { opacity: 0; }
+    33%  { opacity: 0; }
+    66%  { opacity: 0; }
+    100% { opacity: 1; }
+}

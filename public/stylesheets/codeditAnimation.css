@@ -1,0 +1,54 @@
+.codedit {
+    text-align: center;
+    width: 5rem;
+}
+
+.right-arrow,.right-arrow-shadow  {
+    animation: codeanimR 4s ease infinite;
+}
+
+.left-arrow,.left-arrow-shadow  {
+    animation: codeanimL 4s ease infinite;
+}
+
+.dots-shadow {
+    animation: dotanimShadow 4s ease infinite;
+}
+.dots {
+    animation: dotanim 4s ease infinite;
+}
+
+@keyframes dotanimShadow {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0.1;
+    }
+}
+@keyframes dotanim {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes codeanimR {
+    0% {
+        transform: translate(-40rem);
+    }
+    100% {
+        transform: translate(8.5rem);
+    }
+}
+
+@keyframes codeanimL {
+    0% {
+        transform: translate(40rem);
+    }
+    100% {
+        transform: translate(-8.5rem);
+    }
+}

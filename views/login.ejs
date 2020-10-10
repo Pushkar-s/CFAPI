@@ -1,41 +1,11 @@
 <%- include('partials/header.ejs') %>
 
-
-
-
-    
-    <div class="ui placeholder segment">
-        <div class="ui two column very relaxed stackable grid">
-          <div class="column">
-            <div class="ui form">
-              <div class="field">
-                <label>Username</label>
-                <div class="ui left icon input">
-                  <input type="text" placeholder="Username">
-                  <i class="user icon"></i>
-                </div>
-              </div>
-              <div class="field">
-                <label>Password</label>
-                <div class="ui left icon input">
-                  <input type="password">
-                  <i class="lock icon"></i>
-                </div>
-              </div>
-              <!-- <div class="ui blue submit button">Login</div> -->
-            </div>
-          </div>
-          <div class="middle aligned column">
-                <a href="/auth/google" class="ui big google plus button">
-                    <i class="google plus icon"></i>
-                    Google 
-                </a>
-          </div>
-        </div>
-        <div class="ui vertical divider">
-          Or
-        </div>
-      </div>    
+  <div class="text-content">
+      <i class="fa fa-google fa-2x" aria-hidden="true"></i>
+    <form action="/auth/google">
+      <button class="button1"> <span>Google</span> <i class="fa fa-google fa-2x" aria-hidden="true"></i></button>
+    </form>
+  </div>
 
 
 <%- include('partials/footer.ejs') %>
