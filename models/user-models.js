@@ -2,14 +2,15 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const problemSchema = new Schema({
-    problemID: String,
-    name: String,
-    tags: [{type: String}],
-    rating : Number,
-    verdict : Boolean
+    problemID : String,
+    name      : String,
+    tags      : [{type: String}],
+    rating    : Number,
+    verdict   : Boolean,
+    note      : String
 });
 const codeforcesSchema = new Schema({
-    handle : String,
+    handle   : String,
     problems : [problemSchema]
 });
 
