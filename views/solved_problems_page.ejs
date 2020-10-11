@@ -1,6 +1,7 @@
 <%- include('partials/header.ejs') %>
 
 
+
 <section class="grid1">
     <% problems.forEach(element => {%>
         <% element.tags.forEach(function(quetag){%>
@@ -21,6 +22,24 @@
                                 <i class="fa fa-times" aria-hidden="true">Wrong Answer</i>
                             <%} %>
                         </p>
+                        
+                        <div class="content">
+                            <%var todo_container_id = element.name.replace(/ /g, "");%>
+                            <div class="todo-container" id="todo-container<%=todo_container_id%>" >
+                                
+                                <form action="/todos" id="create-todo">
+                                    <input type="hidden" name="title" value="<%=element.name%>">
+                                    <input type="text" name="description" value="<%=element.note%>">
+                                    <input type="submit" value="Submit Note">
+                                </form>
+                                <div class="todo" id="<%=element.name%>" >
+                                    <p><%= element.note%></p>
+                                    <button class="delete-todo">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+
+
                         <%var i = 1;%>
                         <% element.tags.forEach(function(tg){%>
                             <span class="tag<%=i%>">#<%=tg%></span>
@@ -35,3 +54,5 @@
 
 
 <%- include('partials/footer.ejs') %>
+
+

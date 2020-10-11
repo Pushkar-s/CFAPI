@@ -23,4 +23,62 @@ router.get("/solved/:tag",authCheck,(req,res)=>{
     });
 });
 
+
+router.post("/todos",authCheck,(req,res)=>{
+    var nt = req.body.description;
+    var title = req.body.title;
+    console.log("created Note: ", nt);
+
+    User.findOne({googleId:req.user.googleId}).then(function(record){
+        record.Codeforces[0].problems.forEach(function(dbproblem){ // check if this submission is already in database
+            if(dbproblem.name === title){
+                dbproblem.note = nt;
+            }
+        });
+        record.save(function(err, todo) {
+            if (err) return console.error(err);
+            console.log("save successful");
+            // console.log(res.json(req.body));
+            res.json(req.body);
+            return req.body;
+        });
+    });
+});
+
+router.delete('/todos/:id',authCheck,(req,res)=> {
+    // find the todo to delete in the DB
+    // var target = Todo.findById(req.params.id, function(err, todo) {
+    //     return todo;
+    // });
+    var title = req.params.id;
+    // delete the todo from the DB
+    User.findOne({googleId:req.user.googleId}).then(function(record){
+        record.Codeforces[0].problems.forEach(function(dbproblem){ // check if this submission is already in database
+            if(dbproblem.name === title){
+                dbproblem.note = "";
+            }
+        });
+        record.save(function(err, todo) {
+            if (err) return console.error(err);
+            console.log("DELETE successful");
+            // console.log(res.json(req.body));
+            res.json(req.body);
+            return req.body;
+        });
+    });
+});
+
+
+
+
+
 module.exports = router;
+
+
+
+
+
+
+
+
+    
