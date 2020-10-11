@@ -5,6 +5,7 @@ const authRoutes = require("./routes/OAuthRoutes.js");
 const profileRoutes = require("./routes/profile-routes.js");
 const passportSetup = require("./config/passport-setup.js");
 const APIRoutes     = require("./routes/API-Routes.js");
+// const notes         = require("./routes/notes-Routes.js");
 const mongoose = require("mongoose");
 const keys = require("./config/keys.js");
 const cookieSession = require("cookie-session");
@@ -47,6 +48,8 @@ app.use("/profile",profileRoutes);
 
 
 app.use("/edit",APIRoutes);
+
+// app.use("/notes",notes);
 
 
 app.get("/",function(req,res){
