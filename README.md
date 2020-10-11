@@ -4,9 +4,9 @@ Website built for purpose of analizing problem solved by Contestant. Analizing p
 Website built using Node.js for backend and html, jquery and css for frontend.
 various Javascript frameworks like express, request, OAuth, Ajax, passport , ejs, mongodb, mongoose , mocha.
 Requires Data structures and Algorithmic steps to analyse submissions by a contestant.
+ajax calls for saving notes to database.
 
-![Profile Page](https://github.com/Pushkar-s/CFAPI/blob/master/page1.png?raw=true)
-![solved problems page](https://github.com/Pushkar-s/CFAPI/blob/master/page2.png?raw=true)
+![](Glance.gif)
 
 
 Future Plans for features:
