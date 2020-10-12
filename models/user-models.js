@@ -8,11 +8,13 @@ const problemSchema = new Schema({
     tags      : [{type: String}],
     rating    : Number,
     verdict   : Boolean,
-    note      : String
+    note      : String,
+    othertags : [{type: String}]
 });
 const codeforcesSchema = new Schema({
     handle   : String,
-    problems : [problemSchema]
+    problems : [problemSchema],
+    usertags : [{type: String}]
 });
 
 const userSchema = new Schema({

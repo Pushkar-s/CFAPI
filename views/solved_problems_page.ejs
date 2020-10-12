@@ -7,7 +7,8 @@
         <% element.tags.forEach(function(quetag){%>
             <% if (quetag === tag) { %>
                 <div class="card">
-                    <div class="card-content">
+                    <!-- ================================================================= -->
+                    <div class="card-content front">
                         <%var str = element.problemID%>
                         <a href="https://codeforces.com/problemset/problem/<%=str.substring(0,str.length-1)%>/<%=str.substring(str.length-1)%>" style="text-decoration: none;" >
                             <h3><%=element.name%></h3>
@@ -32,20 +33,59 @@
                                     <input type="text" name="description" value="<%=element.note%>">
                                     <input type="submit" value="Submit Note">
                                 </form>
-                                <div class="todo" id="<%=element.name%>" >
-                                    <p><%= element.note%></p>
-                                    <button class="delete-todo">Delete</button>
-                                </div>
+                                <% if (element.note) { %>
+                                    <div class="todo" id="<%=element.name%>" >
+                                        <p><%= element.note%></p>
+                                        <button class="delete-todo">Delete</button>
+                                    </div>
+                                <% } %>
+                                
                             </div>
                         </div>
-
-
                         <%var i = 1;%>
                         <% element.tags.forEach(function(tg){%>
                             <span class="tag<%=i%>">#<%=tg%></span>
                             <%i = i+1; i = (i%7); if (i == 0) i++;%>
                         <%})%>
+
                     </div>
+                    <!-- ================================================================= -->
+                    <div class="card-content back">
+                        <div class="modal" id="first-modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    Lists
+                                    <span class="close" id="firstclose">&times;</span>
+                                </div>
+                                <div class="modal-body">
+                                    <ul>
+                                        <table>
+                                            <% user.Codeforces[0].usertags.forEach(function(utg){%>
+                                                <% var otgpresent = false; %>
+                                                <% element.othertags.forEach(function(otg){   %>
+                                                    <% if (utg == otg) { %>
+                                                        <tr><td><li>
+                                                                    <%=otg%>
+                                                                    <span> yes</span>
+                                                                    <%otgpresent = true;%>
+                                                        </li></td></tr>
+                                                    <% } %>
+                                                <% });%>
+                                                <% if (otgpresent == false) {%>
+                                                    <tr><td><li>
+                                                                <%=utg%>
+                                                                <span> no</span>
+                                                    </li></td></tr>
+                                                <% } %>
+                                            <% }); %>
+                                        </table>
+                                    </ul>
+                                </div>
+                                <div class="modal-footer"><h4>Done</h4></div>
+                            </div>
+                        </div>
+                    </div>
+                <!-- ================================================================= -->
                 </div>
             <% } %>
         <%})%>
