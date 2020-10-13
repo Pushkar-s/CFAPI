@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { db } = require("../models/user-models.js");
 const User = require("../models/user-models.js");
 
 
@@ -46,10 +47,6 @@ router.post("/todos",authCheck,(req,res)=>{
 });
 
 router.delete('/todos/:id',authCheck,(req,res)=> {
-    // find the todo to delete in the DB
-    // var target = Todo.findById(req.params.id, function(err, todo) {
-    //     return todo;
-    // });
     var title = req.params.id;
     // delete the todo from the DB
     User.findOne({googleId:req.user.googleId}).then(function(record){
@@ -69,6 +66,81 @@ router.delete('/todos/:id',authCheck,(req,res)=> {
 });
 
 
+
+router.get("/usertags",authCheck,(req,res)=>{
+    var tag = req.query.tag;
+    tag = tag.replace(/ /g, "");
+    console.log(tag);
+    User.findOne({googleId:req.user.googleId}).then(function(record){
+        record.Codeforces[0].usertags.push(tag);
+        record.save().then(function(){
+            res.render("profile.ejs",{user:record});
+        });
+    });
+});
+
+router.get("/usertags/:rtag",authCheck,(req,res)=>{
+    var rtag = req.params.rtag;
+    User.findOne({googleId:req.user.googleId}).then(function(record){
+        record.Codeforces[0].usertags.pull(rtag);
+        record.Codeforces[0].problems.forEach(function(dbproblem){ 
+            dbproblem.othertags.pull(rtag);
+        });
+        record.save().then(function(){
+            res.render("profile.ejs",{user:record});
+        });
+    });
+});
+
+
+
+router.post("/problemtags",authCheck,(req,res)=>{
+    var tag = req.body.tag;
+    var problemid = req.body.problemid;
+
+    User.findOne({googleId:req.user.googleId}).then(function(record){
+        record.Codeforces[0].problems.forEach(function(dbproblem){ 
+            if(dbproblem.problemID === problemid){
+                dbproblem.othertags.push(tag);
+            }
+        });
+        record.save(function(err, todo) {
+            if (err) return console.error(err);
+            console.log("save successful");
+            res.json(req.body);
+            return req.body;
+        });
+    });
+});
+
+
+router.delete('/problemtags',authCheck,(req,res)=> {
+    var tag = req.body.tag;
+    var problemid = req.body.problemid;
+    User.findOne({googleId:req.user.googleId}).then(function(record){
+        record.Codeforces[0].problems.forEach(function(dbproblem){ 
+            if(dbproblem.problemID === problemid){
+                dbproblem.othertags.pull(tag);
+            }
+        });
+        record.save(function(err, todo) {
+            if (err) return console.error(err);
+            console.log("Delete successful");
+            res.json(req.body);
+            return req.body;
+        });
+    });
+});
+
+
+
+
+router.get("/UserLists/:tag",authCheck,(req,res)=>{
+    // res.send("solved page");
+    User.findOne({googleId:req.user.googleId}).then(function(record){
+        res.render("user_list_page.ejs",{problems:record.Codeforces[0].problems,user:record,tag:req.params.tag});
+    });
+});
 
 
 

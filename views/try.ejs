@@ -1,0 +1,21 @@
+<html>
+<head>
+</head>
+<body>
+    <% var flag = true; %>
+    <button id="badluButton">
+        Click me <h1>Lol</h1>
+    </button>
+    <a href="google.com"></a>
+</body>
+<script>
+    var n = document.getElementById("badluButton");
+    n.onclick = function() {
+        if (n.innerHTML == "Click me <h1>Lol</h1>") {
+            n.innerHTML = "Unclick me <h1>Lol</h1>";
+        }else {
+            n.innerHTML = "Click me <h1>Lol</h1>";
+        }
+    }
+</script>
+</html>

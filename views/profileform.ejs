@@ -1,15 +1,18 @@
 <%- include('partials/header.ejs') %>
 
-
-    <div class="ui text container segment">
-        <form class="ui form" action="/edit/cfhandle" method="GET">
-                <div class="field">
-                    <label>Enter your codeforces handle:</label>
-                    <input type="text" name="username" placeholder="text">
-                </div>
-                <button class="ui violet big basic button">Submit</button>
-        </form>
+    <div class="text-content">
+        <h3>Note: changing your handle will erase all your save data like problem Notes and Custom lists</h3>
+        <div class="ui text container segment">
+            <form class="ui form" action="/edit/cfhandle" method="GET">
+                    <div class="field">
+                        <label>Enter your codeforces handle:</label>
+                        <input type="text" name="username" placeholder="text">
+                    </div>
+                    <button class="ui violet big basic button">Submit</button>
+            </form>
+        </div>
     </div>
+    
     
 
 <%- include('partials/footer.ejs') %>

@@ -12,11 +12,9 @@ function buildTodo(todo) {
 $(document).ready(function() {
     $('.todo-container').on('submit', function(e) {
         e.preventDefault();
-
         console.log(e.target); // the form
         var formData = $(e.target).serialize();
         $('#create-todo').trigger("reset");
-
         $.ajax({
             url: '/profile/todos', 
             type: 'post', 

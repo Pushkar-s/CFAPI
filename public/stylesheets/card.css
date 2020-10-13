@@ -17,7 +17,14 @@
     margin: 0 0 1em;
     width: 100%;
     transform: translateY(0);
-    border-radius: var(--card-radius);
+    /* border-radius: var(--card-radius); */
+}
+
+.card-content.front {
+    display: block;
+}
+.card-content.back {
+    display: none;
 }
 
 .card:hover {
@@ -32,6 +39,12 @@
 }
 .card-content p {
     color: gray;
+}
+
+.show-userlists {
+    text-align: center;
+    padding: 1rem;
+    border: 1px solid white;
 }
 
 .tag1 {
@@ -104,4 +117,104 @@
     display: inline-block;
     letter-spacing: .15ch;
     font-weight: 400;
+}
+
+.tag7 {
+    font-weight: bold;
+    background-color: #b2b2cd;
+    border-radius: 2px;
+    color: #454e56;
+    padding: 0.2rem;
+    font-size: .8em;
+    display: inline-block;
+    letter-spacing: .15ch;
+    font-weight: 400;
+}
+
+.tagAC {
+    font-weight: bold;
+    background-color: #222;
+    border-radius: 2px;
+    color: #90c53f;
+    padding: 0.2rem;
+    font-size: .8em;
+    display: inline-block;
+    letter-spacing: .15ch;
+    font-weight: 400;
+}
+.tagWA {
+    font-weight: bold;
+    background-color: #222;
+    border-radius: 2px;
+    color: #850b2a;
+    padding: 0.2rem;
+    font-size: .8em;
+    display: inline-block;
+    letter-spacing: .15ch;
+    font-weight: 400;
+}
+
+
+
+
+/* ========================================card BACK============================================== */
+
+.modal {
+    background: black;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    animation-name: slideIn;
+    animation-duration: 0.7s ;
+}
+
+.modal-content {
+    width: 100%;
+    background: black;
+}
+
+.close {
+    float: right;
+    color: grey;
+}
+.modal-header {
+    color: grey;
+    padding: 1rem;
+}
+
+.modal-body {
+    color: grey;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+table,th,td {
+    background: #2a2e35;
+    border-collapse: collapse;
+    border: 1px solid grey;
+    width: 100%;
+    padding: 0.5rem;
+}
+
+
+@keyframes slideIn {
+    from {bottom: -10rem; opacity: 0}
+    to {bottom: 0; opacity: 1}
+}
+
+
+@keyframes fadeIn {
+    from {opacity: 0} 
+    to {opacity: 1}
+}
+
+
+
+/* ============= */
+
+.My-lists {
+    text-align: center;
+    font-family: "attribute-mono",monospace;
 }

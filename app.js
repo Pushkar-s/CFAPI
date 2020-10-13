@@ -56,6 +56,10 @@ app.get("/",function(req,res){
     res.render("index.ejs",{user:req.user});
 });
 
+app.get("/try",function(req,res) {
+    res.render("try.ejs");
+});
+
 app.listen(3000,function(){
     console.log("server on port 3000");
 });

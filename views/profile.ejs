@@ -48,6 +48,28 @@
         <%})%>
     </section>
 
+    <div class="My-lists">
+        <h3> Your Lists</h3>
+        <ul>
+            
+                <% user.Codeforces[0].usertags.forEach(function(utg){ %>
+                    <li>
+                        <span class="tag7">#<%=utg%></span>
+                        <a href="/profile/usertags/<%=utg%>"> remove tag</a>
+                    </li>
+                <% });%>
+            
+        </ul>
+        
+        <form  action="/profile/usertags" method="GET">
+            <div class="field">
+                <label>Add to your List:</label>
+                <input type="text" name="tag" placeholder="text">
+            </div>
+            <button >Submit</button>
+        </form>
+    </div>
+
 <%}%>
 
 
