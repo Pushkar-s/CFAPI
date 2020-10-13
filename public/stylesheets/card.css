@@ -17,14 +17,14 @@
     margin: 0 0 1em;
     width: 100%;
     transform: translateY(0);
-    border-radius: var(--card-radius);
+    /* border-radius: var(--card-radius); */
 }
 
 .card-content.front {
-    display: none;
+    display: block;
 }
 .card-content.back {
-    display: block;
+    display: none;
 }
 
 .card:hover {
@@ -39,6 +39,12 @@
 }
 .card-content p {
     color: gray;
+}
+
+.show-userlists {
+    text-align: center;
+    padding: 1rem;
+    border: 1px solid white;
 }
 
 .tag1 {
@@ -113,6 +119,41 @@
     font-weight: 400;
 }
 
+.tag7 {
+    font-weight: bold;
+    background-color: #b2b2cd;
+    border-radius: 2px;
+    color: #454e56;
+    padding: 0.2rem;
+    font-size: .8em;
+    display: inline-block;
+    letter-spacing: .15ch;
+    font-weight: 400;
+}
+
+.tagAC {
+    font-weight: bold;
+    background-color: #222;
+    border-radius: 2px;
+    color: #90c53f;
+    padding: 0.2rem;
+    font-size: .8em;
+    display: inline-block;
+    letter-spacing: .15ch;
+    font-weight: 400;
+}
+.tagWA {
+    font-weight: bold;
+    background-color: #222;
+    border-radius: 2px;
+    color: #850b2a;
+    padding: 0.2rem;
+    font-size: .8em;
+    display: inline-block;
+    letter-spacing: .15ch;
+    font-weight: 400;
+}
+
 
 
 
@@ -167,4 +208,13 @@ table,th,td {
 @keyframes fadeIn {
     from {opacity: 0} 
     to {opacity: 1}
+}
+
+
+
+/* ============= */
+
+.My-lists {
+    text-align: center;
+    font-family: "attribute-mono",monospace;
 }
