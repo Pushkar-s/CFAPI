@@ -10,9 +10,9 @@ ajax calls for saving notes to database.
 
 
 Future Plans for features:
-    1. changing design of website, removing semantic ui framework
-    2. create own topic lists and add problems to it.
-    3. ajax for saving notes to a problem
+    1. changing design of website, removing semantic ui framework (DONE)
+    2. create own topic lists and add problems to it.(DONE)
+    3. ajax for saving notes to a problem (DONE)
     4. move to web scrapping instead of cf API.
     5. upcomming contests date
     6. implementation of dark mode
