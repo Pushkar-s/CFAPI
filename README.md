@@ -16,3 +16,5 @@ Future Plans for features:
     4. move to web scrapping instead of cf API.
     5. upcomming contests date
     6. implementation of dark mode
+    7. css grid advanced implementation
+    8. for small screen devices.
