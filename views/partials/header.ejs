@@ -43,21 +43,16 @@
                             <span class="link-text"><%=user.Codeforces[0].handle%></span>
                         </a>
                     </li>
-                    <!-- <a class = "right item" href="/profile"><%=user.Codeforces[0].handle%></a> -->
+                    <% user.Codeforces[0].usertags.forEach(function(utg){ %>
+                        <li class="nav-item">
+                            <a href="/profile/UserLists/<%=utg%>" class="nav-link">
+                                <i class="fa fa-hashtag" aria-hidden="true"></i>
+                                <span class="link-text"><%=utg%></span>
+                            </a>
+                        </li>
+                    <% });%>
                 <%}%>
                 
-
-
-
-                <% user.Codeforces[0].usertags.forEach(function(utg){ %>
-                    <li class="nav-item">
-                        <a href="/profile/UserLists/<%=utg%>" class="nav-link">
-                            <i class="fa fa-hashtag" aria-hidden="true"></i>
-                            <span class="link-text"><%=utg%></span>
-                        </a>
-                    </li>
-                <% });%>
-
 
 
 
