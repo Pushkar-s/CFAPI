@@ -19,20 +19,24 @@
 
 <%if(user.Codeforces.length===1){%>
     <!-- if user exists -->
+    
 
-    <%var cnt = [0,0,0,0,0]%>
+    <%var cnt = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]%>
+    <% var arr = ["greedy","dp","math","graphs","implementation","constructive algorithms","number theory","strings","data structures","brute force","two pointers","bitmasks","binary search","sortings","combinatorics","games","schedules","matrices","dsu","trees","dfs and similar","shortest paths","divide and conquer","geometry","hashing","ternary search"]; %>
     <% user.Codeforces[0].problems.forEach(function(dbproblem){%>
         <%dbproblem.tags.forEach(function(tag){%>
-            <% if( tag==="implementation"){cnt[4]++;}%>
-            <% if( tag==="dp"){cnt[1]++}%>
-            <% if( tag==="math"){cnt[2]++}%>
-            <% if( tag==="greedy"){cnt[0]++}%>
-            <% if( tag==="graphs"){cnt[3]++}%>
+            <% var i = 0; %>
+            <% arr.forEach(function(t){ %>
+                <% if (tag == t) { %>
+                    <% cnt[i]++; %>
+                <% } %>
+                <% i++; %>
+            <% }); %>
         <%})%>
     <%})%>
 
     <section class="grid">
-        <% var arr = ["greedy","dp","math","graphs","implementation"],i=0%>
+        <% var i=0,css = 0%>
         <% arr.forEach(function(t){%>
             <div class="card">
                 <div class="card-content">
@@ -41,7 +45,8 @@
                     </a>
                     <p>No of Problems solved : <%=cnt[i++]%> </p>
                     <a href="/profile/solved/<%=t%>" style="text-decoration: none;" >
-                        <span class="tag<%=i%>">see-solved-problems</span>
+                        <% css++; css = css%8; if (css == 0) css++; %>
+                        <span class="tag<%=css%>">see-solved-problems</span>
                     </a>
                 </div>
             </div>
