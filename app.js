@@ -60,7 +60,7 @@ app.get("/try",function(req,res) {
     res.render("try.ejs");
 });
 
-app.listen(3000,function(){
+app.listen(process.env.PORT || 3000,function(){
     console.log("server on port 3000");
 });
  
