@@ -1,5 +1,5 @@
 # CFAPI
-Link to the Website: https://pscodeforcesapi.herokuapp.com/  (NOT MOBILE FRIENDLY, PREFER DESKTOP VERSION)
+Link to the Website: https://cpsave.herokuapp.com/  (NOT MOBILE FRIENDLY, PREFER DESKTOP VERSION)
 Website Using Codeforces API
 Website built for purpose of analizing problem solved by Contestant. Analizing problems with submissions and their tags only.
 Website built using Node.js for backend and html, jquery and css for frontend.
