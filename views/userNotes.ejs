@@ -1,0 +1,89 @@
+<%- include('partials/header.ejs') %>
+
+
+<section class="notesGrid">
+
+    <div class="notesCard">
+        <div class="notesCard-content notesCard-tall notesCard-wide" style="text-align: center;">
+            <a href="#">
+                <h3>Title of your Note</h3>
+            </a>
+            <p> short note [visible]: on what this note is about. <br> Use ';' to break line for short notes <br> long note : can be seen using edit note button</p>
+            <button class="edit-button" id="myBtn1">
+                Edit Note
+            </button>
+            <button class="delete-button" id="myBtn1">
+                Delete Note
+            </button>
+        </div>
+    </div>
+    <div id="myModal1" class="notesModal" style="text-align: center;">
+        <!-- Modal content -->
+        <div class="notesModal-content">
+            <span class="notesClose" id="close1">&times;</span>
+            <p>Enter short notes on top of notesCard</p>
+            
+            <textarea class="short-note" rows="3"></textarea>
+            <p> Enter long notes:</p>
+            <textarea class="long-note" rows="30"></textarea>
+            <br>
+            <button class="note-button"> Save </button>
+        </div>
+    </div> 
+
+    <% userNotes.reverse().forEach ( element=> { %>
+        <div class="notesCard" id="<%=element._id%>">
+            <div class="notesCard-content notesCard-tall notesCard-wide" >
+                <a href="#">
+                    <h3><%=element.title%></h3>
+                </a>
+                <% if (element.shortDescription) {%>
+                    <p> <%-element.shortDescription.split(";").join("<br />")%> </p>
+                <% } %>
+                <button class="edit-button" >
+                    Edit Note
+                </button>
+                <button class="delete-button" >
+                    Delete Note
+                </button>
+    
+            </div>
+        </div>
+        <div class="notesModal" id="modalid<%=element._id%>"  style="text-align: center;">
+            <div class="notesModal-content">
+                <form action="/donotexstroute" id="edit-note<%=element._id%>"> 
+                    <span class="notesClose" id="close<%=element._id%>">&times;</span>
+                    <textarea name="title" rows="1"><%=element.title%></textarea>
+                    <textarea name="modid" rows="1" style="display: none;"><%=element._id%></textarea>
+                    <br>
+                    <p>Enter short notes on top of notesCard</p>
+                    
+                    <textarea name="shortdescription" class="short-note" rows="3"><%=element.shortDescription%></textarea>
+                    <p> Enter long notes:</p>
+                    <textarea name="longdescription" class="long-note" rows="30"><%=element.longDescription%></textarea>
+                    <br>
+                    <!-- <input type="submit" value="Save Note"> -->
+                    <button class="saveNote-button">Save</button>
+                </form>
+            </div>
+        </div> 
+    <% }); %>
+
+</section>
+
+<section>
+    <div class="add-note" id="" style="text-align: center;" >                    
+        <form action="/notes" id="create-note">
+            <input type="text" name="title" rows="30" placeholder="title">
+            <br>
+            <textarea name="shortdescription" id="" rows="3" placeholder="Short Description" style="width: 90%; height: 100%;box-sizing: border-box;" ></textarea>
+            <br>
+            <textarea name="longdescription" id="" rows="30" placeholder="Long Description" style="width: 90%; height: 100%;box-sizing: border-box;"></textarea>
+            <br>
+            <input type="submit" value="Submit Note">
+        </form>
+    </div>
+</section>
+
+
+<%- include('partials/footer.ejs') %>

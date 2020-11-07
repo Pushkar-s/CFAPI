@@ -210,7 +210,7 @@ main {
     .navbar {
         top : 0;
         width: 5rem; /*notice how it matches with the size of margin we left*/
-        height: 100vh; /*vh  is also unit of height but relative 100 vh takes up always 100% of the height*/
+        height: 100vh; /*vh  is also unit of height but relative 100 vh takes up always 100% of the height */
     }
     .navbar:hover {
         width: 16rem;

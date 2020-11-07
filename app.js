@@ -5,6 +5,7 @@ const authRoutes = require("./routes/OAuthRoutes.js");
 const profileRoutes = require("./routes/profile-routes.js");
 const passportSetup = require("./config/passport-setup.js");
 const APIRoutes     = require("./routes/API-Routes.js");
+const userNotesRoutes= require("./routes/UserNotes.js");
 // const notes         = require("./routes/notes-Routes.js");
 const mongoose = require("mongoose");
 const keys = require("./config/keys.js");
@@ -45,7 +46,7 @@ mongoose.connection.once('open',function(){
 
 app.use("/auth",authRoutes);
 app.use("/profile",profileRoutes);
-
+app.use("/userNotes",userNotesRoutes);
 
 app.use("/edit",APIRoutes);
 

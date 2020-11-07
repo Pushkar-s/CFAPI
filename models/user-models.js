@@ -1,6 +1,12 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+const notesSchema = new Schema({
+    title            : { type: String, required: true},
+    shortDescription : { type: String },
+    longDescription  : { type: String },
+    createdAt        : { type: Date, default: Date.now()}
+});
 
 const problemSchema = new Schema({
     problemID : String,
@@ -17,10 +23,12 @@ const codeforcesSchema = new Schema({
     usertags : [{type: String}]
 });
 
+
 const userSchema = new Schema({
-    username   : String,
-    googleId   : String,
-    Codeforces : [codeforcesSchema]
+    username    : String,
+    googleId    : String,
+    Codeforces  : [codeforcesSchema],
+    UserNotes   : [notesSchema]
 });
 
 const User = mongoose.model('user',userSchema);
