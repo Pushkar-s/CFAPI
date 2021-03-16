@@ -31,18 +31,28 @@ router.post("/addNote",authCheck,(req,res)=>{
     console.log(typeof shortnt);
     // console.log(typeof nt);
     User.findOne({googleId:req.user.googleId}).then(function(record){
-
-        record.UserNotes.push({
+        
+        var subdoc = record.UserNotes.create({ 
             title : titlef,
             shortDescription: shortnt,
             longDescription : longnt
         });
+        record.UserNotes.push(subdoc);
 
         record.save(function(err, note) {
             if (err) return console.error(err);
             console.log("save successful");
             // console.log(res.json(req.body));
+            console.log(subdoc._id);
+            console.log(typeof subdoc._id);
+            req.body.forId = subdoc._id.toString();
+            console.log("after........");
+            console.log(" consoling req.body");
+            console.log(req.body);
+            console.log("req.body type");
+            console.log(typeof req.body);
             res.json(req.body);
+            // req.body.push({id:"020202"})
             return req.body;
         });
     });

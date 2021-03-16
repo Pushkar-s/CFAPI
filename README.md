@@ -4,7 +4,7 @@
 
 ## Highlights
 
-Website built for purpose of analyzing problem solved by Contestant.Saving Notes to problems and Separate Notes Page. Analyzing problems with submissions and their tags only.
+Website built for purpose of analyzing problem solved by Contestant on codeforces.Saving Notes to problems and Separate Notes Page. Analyzing problems with submissions and their tags only.
 
 Website built using Node.js for backend and html, jquery and css for frontend.
 

@@ -4,7 +4,7 @@
 // function for building an HTML string to append later
 function buildCardNote(note) {
     var noteHtml = 
-    '<div class="notesCard ">' +
+    '<div class="notesCard" ' + 'id="'+ note.forId +'">' + 
             '<div class="notesCard-content notesCard-tall notesCard-wide" >' +
                 '<a href="#">' +
                     '<h3>' + note.title + '</h3>' +
@@ -19,25 +19,39 @@ function buildCardNote(note) {
                 '</button>'+
     
             '</div>'+
-    '</div>';
-    // +'<div id="' + note._id + '" class="notesModal" style="text-align: center;">'
-    // +    '<div class="notesModal-content">'
-    // +        '<span class="notesClose" id="close1">&times;</span>'
-    // +        '<p>Enter short notes on top of notesCard</p>'
-    // +        '<textarea class="short-note" rows="3"></textarea>'
-    // +        '<p> Enter long notes:</p>'
-    // +        '<textarea class="long-note" rows="30"></textarea>'
-    // +        '<br>'
-    // +        '<button class="note-button"> Save </button>'
-    // +    '</div>'
-    // +'</div>'     
+    '</div>'+
+    '<div class="notesModal" id="modalid' + note.forId + '"  style="text-align: center;">' + 
+            '<div class="notesModal-content">' + 
+                '<form action="/donotexstroute" id="edit-note' + note.forId + '">' +  
+                    '<span class="notesClose" id="close'+ note.forId + '">&times;</span>' + 
+                    '<textarea name="title" rows="1">'+ note.title + '</textarea>'+
+                    '<textarea name="modid" rows="1" style="display: none;">' + note.forId +'</textarea>'+
+                    '<br>'+
+                    '<p>Enter short notes on top of notesCard</p>'+
+                    '<textarea name="shortdescription" class="short-note" rows="3">' + note.shortdescription+ '</textarea>'+
+                    '<p> Enter long notes:</p>'+
+                    '<textarea name="longdescription" class="long-note" rows="30">'+ note.longdescription + '</textarea>'+
+                    '<br>'+
+                    '<!-- <input type="submit" value="Save Note"> -->'+
+                    '<button class="saveNote-button">Save</button>'+
+                '</form>'+
+            '</div>'+
+        '</div>' ;
+       
 
     return noteHtml;
 }
 
+
+
+
+
+
+
+
 $(document).ready(function() {
 
-    $('.notesModal').on('submit', function(e) {
+    $(document).on('submit', function(e) {
         e.preventDefault();
         console.log(e.target); // the form
         var formData = $(e.target).serialize();
@@ -53,6 +67,8 @@ $(document).ready(function() {
             // id = id.substr(7,id.length); 
             // alert(e.target.title.textContent);
             // alert(e.target.modid.textContent);
+            console.log("returned data from submit edit")
+            console.log(data);
             var id = e.target.modid.textContent;
             $('#'+id+' h3').text(e.target.title.textContent + '[Updated]');
         }).fail(function(data) {
@@ -70,6 +86,7 @@ $(document).ready(function() {
             type: 'post', 
             data: formData 
         }).done(function(data) {
+            console.log("data returned" + typeof data);
             console.log(data);
             var note = buildCardNote(data)
             var todododo = '.notesGrid';
@@ -79,7 +96,7 @@ $(document).ready(function() {
         })
     });
 
-    $('.notesCard').on('click', '.delete-button', function(e) {
+    $(document).on('click', '.delete-button', function(e) {
         e.preventDefault();
         var ntcard = $(this).closest('.notesCard');
         var id = $(ntcard).attr('id');
@@ -99,7 +116,7 @@ $(document).ready(function() {
         })
     })
 
-    $('.notesCard').on('click', '.edit-button', function(e) {
+    $(document).on('click', '.edit-button', function(e) {
         e.preventDefault();
         var ntcard = $(this).closest('.notesCard');
         var id = $(ntcard).attr('id');
